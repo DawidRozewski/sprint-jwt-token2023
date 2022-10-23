@@ -16,9 +16,15 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+
 public class SecurityConfig {
 
-    private RsaKeyProperties rsaKeys;
+    private final RsaKeyProperties rsaKeys;
+
+    public SecurityConfig(RsaKeyProperties rsaKeys) {
+        this.rsaKeys = rsaKeys;
+    }
+
 
     @Bean
     public InMemoryUserDetailsManager user(){
